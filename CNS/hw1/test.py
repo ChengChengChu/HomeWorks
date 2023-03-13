@@ -1,18 +1,18 @@
-from pwn import *
+from itertools import permutations
 
 words = []
 with open('common_words.txt', 'r') as fp :
     for line in fp.read().splitlines() :
         words.append(line)
 
-def decode_ceaser(text) :
-    for offset in range(27) :
+def decode_ceaser(text, max_len) :
+    for offset in range(max_len) :
         decode = ""
         for x in text :
             if ord(x) >= 97 and ord(x) <= 122 :
-                decode += chr((ord(x) + offset - 97) % 26 + 97)
+                decode += chr((ord(x) + offset - 97) % max_len + 97)
             elif ord(x) >= 65 and ord(x) <= 90 :
-                decode += chr((ord(x) + offset - 65) % 26 + 65)
+                decode += chr((ord(x) + offset - 65) % max_len + 65)
             else :
                 decode += x
         count = 0
@@ -21,50 +21,24 @@ def decode_ceaser(text) :
                 if d == w :
                    #  print(d)
                     count += 1
-        if count >= 1 :
+        if True :
             # print("========\n", decode, "========\n")
-            return decode
+            print(f"offset : {offset}, text : {decode}")
+            continue
 
     return "Not enough common_words"
+text = []
+with open("encoded.txt", 'r') as fp :
+    for line in fp.read().splitlines() :
+        text.append(line)
 
-r = remote('cns.csie.org', 44398)
-# r.interactive()
-r.recvuntil("[?]" )
+_ = text[0].replace("'", "")
+# _ = "yod"
 
-tmp = r.recv()
-tmp = tmp.decode('utf-8')
-# print(tmp)
-tmp = tmp.split()
-# print(tmp)
-a = ord(tmp[0])- 48
-b = ord(tmp[2]) - 48
-#print(a, b)
-#print(str(a + b))
-r.send(str(a + b) + '\n')
-r.send("Classical crypto is super easy!\n")
-# while True : 
-r.recvuntil('[i]')
-tmp = r.recvline().decode('utf-8')
-# print(tmp,'\n' +  '=' * 100)
-tmp = tmp.split('=')[-1].replace("'", '')
+# perms = [''.join(p) for p in permutations(_)]
 
-##### decode ########
-# print(decode_ceaser(tmp), '\n\n\n\n')
-a = decode_ceaser(tmp)
-# print(type(a))
-decode = ' '.join(a.split())
-# print('===', a.split(), '===')
-print("decode message : ", decode)
-r.sendline(decode)
-
-r.interactive()
-r.recvuntil('[i]')
-tmp = r.recvline().decode('utf-8')
-
-tmp = tmp.split('=')[-1].replace("'", '')
-# print('\n\n', tmp, '\n\n')
-
-print(decode_ceaser(tmp))
-r.interactive()
+# _ = "yod"
+# print(perms)
+decode_ceaser(_, 26)
 
 
