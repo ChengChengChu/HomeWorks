@@ -997,3 +997,12 @@ quotient
 teeth
 shell
 neck
+times
+computed
+solved
+breakable
+symmetric
+until
+computational
+hardness
+insecure
