@@ -1006,3 +1006,7 @@ until
 computational
 hardness
 insecure
+computing
+technology
+key
+public
