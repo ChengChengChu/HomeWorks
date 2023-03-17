@@ -1,0 +1,24 @@
+[i] b64encode(c1) = b'I/wDDvYU0wBPdsddSspDidrCr5VJeca34sKu/5Fb0UeM3lTtRHa0QDb7u2/OmdMbp563'
+[i] m1 = 'made with vegetable practice by secure; theoretical'
+[i] b64encode(c2) = b'LPhHCLkNzh1JI9BUQdYXh96OucxUZsKg5MKut9pc0UecyU7oQnzoEiPjtnmS'
+=====
+[i] b64encode(c1) = b'Amvdjlke7jIafxPH2ykOcpsDGxS52kbXBHiP09Kk2zWL2UdrgWUmaJ3O7OAhVWqq6qw='
+[i] m1 = 'to modern key encryption (likely much air into the'
+[i] b64encode(c2) = b'AmGPjlMeqyMbMgjX1mgfdZcfAwihygnKQTOWyNz6lzjD0RJrhSwib5vVpeE7VjP+9qEW'
+=====
+[i] b64encode(c1) = b'idpmjw/lqNM7tUWfRFNcWBx+UNWVFypwoZzA1Hq/o5qDyYqs+H4B1W7XuOkHYdaQH9KJJ6IL4Jl9sacrfpqdddGBbnqP6g=='
+[i] m1 = 'secure schemes term includes adapted. Information-theoretically secure'
+[i] b64encode(c2) = b'm9N2lV31+9U5sUyLAVYZXgAsXIaPDCRsoJHKySny55aS1oamsX47zmvQ'
+========
+[i] b64encode(c1) = b'HW8e+O5cMmdkl3aiTggUrExtByfydtbxHLFPpvqT+qB3SP47VttsDzpRH4B+X+F+vd9PcvMBtpjvx4Ea'
+[i] m1 = 'easier to beat air can only contrast to modern cryptographic'
+[i] b64encode(c2) = b'FWse4upJdzN+xH2pSFxApUA/RCX9OJnwHqQW6f/c9fR1W+Q5F9tmDzxbAg=='
+======
+[i] b64encode(c1) = b'Fx2ZYVhUEB9BhJ0PyKpYn1oB1qS5NlVvLZVB5xC9izjoWUS3VISkiQocpHUmtWrg5T7ZfCKxlqn+CQ=='
+[i] m1 = 'with vegetable oil, instead with modern public key used by'
+[i] b64encode(c2) = b'BRiMaxdQFAxB0K4Iyq4Rg0AMlOe1eE1+MdgFsw+xhnCrVUXzXpDqyhUEtmw7szir4SmdKT+xhv7zAr8='
+======
+[i] b64encode(c1) = b'9MMGl7nuk5l+l8RumchrLhAj0tD5YK+z/58SKzsn1TbxUBXzOZzZsEOpnyIMC2+DFU/6Y2pOpOS3NSjegQ=='
+[i] m1 = 'only be the public key fundamentally difficult problem) while'
+[i] b64encode(c2) = b'/sMJnOD8gtxu38wrms5oJRxghtP5d6+z5Z0SLzJi0izkU1n+cZ2Qt0uk3CQFDTmWFQD6YHtLrayhKyjcgw=='
+=====
