@@ -1,10 +1,11 @@
-from Crypto.Cipher import AES
+from Cryptodome.Cipher import AES
 from myErrors import *
 import binascii
 import secret
 
 def pad(m):
     length = 16-len(m) % 16
+    print(chr(length).encode(), length)
     return m+chr(length).encode()*length
 
 

@@ -1,6 +1,6 @@
 import random
 from cryptoFunc import *
-from motivationalQuotes import *
+# from motivationalQuotes import *
 
 def askNahida():
     haveQuestion = True
@@ -29,12 +29,13 @@ def askNahida():
                 if e.__class__.__name__ == 'UnicodeDecodeError':
                     print('Hint:', 'Not a valid ID...')
                 else:
+                    # print("PASS")
                     print('Hint:', e)
 
         elif choice == 2:
-            idx = random.randint(0, len(quotes)-1)
-            quote  = quotes[idx]
-            print(quote)
+            # idx = random.randint(0, len(quotes)-1)
+            # quote  = quotes[idx]
+            print("Chihuahua is cute ? ")
 
         elif choice == 3:
             print('Bye~ May wisdom always be with you!')
