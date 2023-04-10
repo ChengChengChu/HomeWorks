@@ -42,10 +42,11 @@ def main() :
     
     p.recvuntil(b'Username: ')
     p.sendline(encoded_string_1)
-     
     p.recvuntil(b'Base64: ')
     p.sendline(pass_word_1.encode())
+    # p.interactive()
     p.recvuntil(b'Your choice: ')
+    # p.interactive()
     p.sendline(str(get_flag).encode())
     
     to_recv = str((get_flag - 1)) + ':'

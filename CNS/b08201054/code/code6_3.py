@@ -1,5 +1,5 @@
 from pwn import *
-from sympy.ntheory import discrete_log
+#from sympy.ntheory import discrete_log
 from Crypto.Util.number import getPrime, isPrime, bytes_to_long, long_to_bytes
 
 def main() :

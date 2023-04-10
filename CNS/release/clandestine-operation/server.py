@@ -31,12 +31,18 @@ def printIDCard():
     print('+' + '-'*51 + '+')
 
 def authenticate(ID):
-    try:
+    if True:
         info = decrypt(ID)
-
-        print('Analyzing info:', info)
+        # print('Analyzing info:', info)
         info = info.split('||')
         
+        # print("info[0][:10]")
+        # print("info[1][:5]")
+        # print("info[2][:12]")
+        # print("info[1][5:]")
+        # import pdb
+        # pdb.set_trace()
+        # "['job title:Grand Disciplinary Officer', 'name:Cyno', 'secret word:CNS{IloveChihuahua_1?!}']"
         if len(info) != 3:
             raise formatError('Invalid format')
 
@@ -56,7 +62,7 @@ def authenticate(ID):
         else:
             print('Only Azar can enter!!!')
             return False
-    except:
+    else:
         print('Authentication failed')
         return False
 
@@ -85,7 +91,7 @@ if __name__ == '__main__':
                 print('Invalid command')
         else:
             beforeEnterSurasthana()
-
+            # print("PASS")
             choice = choicePrompt()
             if choice == 1:
                 ID = input('Please enter your ID (hex encoded): ').strip()
