@@ -1,7 +1,6 @@
 from pwn import *
 import random
-from exploit import *
-from cryptoFunc import *
+from code6_1 import *
 
 flag1 = b'CNS{Aka_BIT_f1ipp1N9_atTaCk!}'
 
@@ -57,6 +56,7 @@ def _decode(c, X) :
         for j in range(16) :
             tmp = bytes_to_long(c[i-1][j]) ^ X[i][j]
             # tmp = long_to_bytes(tmp)
+            print(tmp)
             foo.append(tmp)
     
     return foo
@@ -103,22 +103,28 @@ def main() :
     #         foo.append(tmp)
     
     # print(foo)
-    foo = _decode(c, X)
+    # foo = _decode(c, X)
     # print(foo)
     
     _ = []
     idx = 0
     ## change block2 0, 1, 2, 3##
-    while idx < 256 :
+    while True :
         
         cipher = ''
-        my_guess = [0, 0, 45, 66]
+        my_guess = [0, 0, 45, 67]
         # for i in range(2) :
         #     my_guess.append(random.randint(0, 255))
         idx += 1
         for i in range(4) :
-            c[1][i] = long_to_bytes(my_guess[i])
-
+            c[1][i] = long_to_bytes(my_guess[i] + bytes_to_long(c[1][i]) % 256)
+        
+        
+        c[1][3] = long_to_bytes(bytes_to_long(c[1][3]) - 128)
+        # c[1][2] = long_to_bytes(random.randint(128, 255))
+        # c[1][3] = long_to_bytes(random.randint(0, 127))
+        # print([bytes_to_long(x) for x in c[1][0 : 5]])
+        # p.interactive()
         for i in range(6) :
             tmp = []
             for j in range(16) :
@@ -126,18 +132,22 @@ def main() :
                     a = bytes_to_long(c[i][j])
                     cipher += f'0x{a:02x}'.replace('0x', '')
         
-        # print(len(cipher))
-        foo = _decode(c, X)
-        foo = bytes(foo)
-        foo = unpad(foo).decode()
-        print(f"{foo}, {idx}")
-        try :
-            foo = foo.decode()
-            print(foo)
-            _.append(idx - 1)
-        except :
+        # print(cipher)
+        # with open('1.txt', 'w') as fp :
+        #     fp.write(cipher + '\n')
+
+        # p.interactive()
+        # foo = _decode(c, X)
+        # foo = bytes(foo)
+        # foo = unpad(foo).decode()
+        # print(f"{foo}, {idx}")
+        #try :
+        #    foo = foo.decode()
+        #    print(foo)
+        #    _.append(idx - 1)
+        #except :
             # break
-            continue
+        #    continue
         # print(cipher)
         # p.interactive()
         if True : 
@@ -147,11 +157,12 @@ def main() :
             recv_to_send_guess(p)
             p.sendline(cipher.encode())
             msg = p.recvuntil(b'\n', drop=True).decode()
-            # print(msg)
+            print(msg)
             # print(my_guess)
             # print(len(_))
             # breai
-        print(msg)
+            # print(msg)
+            p.interactive()
         # except :
         #     continue
         # recv_to_send_guess(p)
